@@ -1,16 +1,18 @@
-# Compiled class file
+# .gitignore
+# ----------
+# Purpose (plain English): Lists files Git should never track — build output, editor
+# settings, and OS clutter — so the repository only ever contains real source code.
+
+# Maven build output
+target/
+
+# Compiled class files
 *.class
 
-# Log file
+# Log files
 *.log
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# Package files
 *.jar
 *.war
 *.nar
@@ -19,6 +21,23 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# JVM crash logs
 hs_err_pid*
 replay_pid*
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# macOS
+.DS_Store
+
+# Editors / IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
