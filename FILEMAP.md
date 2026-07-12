@@ -14,6 +14,7 @@ A quick-reference index of every file in this repository, grouped by directory.
 ## Repository root
 
 - **`FILEMAP.md`** — This file. The master index describing every file in the project.
+- **`WHY-CARTOGRAPH.md`** — Explains what makes Cartograph distinct and how it adds value to an AI agent; the "why this exists" narrative.
 - **`pom.xml`** — The Maven build recipe: Java 21, the MCP SDK dependency, and the packaging step that produces the runnable `target/cartograph.jar`.
 - **`.gitignore`** — Lists files Git should never track, such as build output and editor settings.
 - **`mvnw`** — Maven Wrapper launcher for macOS and Linux. Lets you run `./mvnw` to build without installing Maven yourself. Vendored from Apache; not edited by hand.
