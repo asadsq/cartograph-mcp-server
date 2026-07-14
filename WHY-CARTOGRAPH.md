@@ -30,6 +30,8 @@
 
 - **Each tool also returns a plain-English `method` line, delivered in one compact call.** Rather than a trail of file reads to digest, the agent gets a small result plus one friendly sentence on what Cartograph checked — so it can turn around a trustworthy, well-grounded answer quickly, with the work behind it visible rather than a black box.
 
+- **Runs entirely on your own machine — your code never leaves it.** Cartograph is launched locally by your MCP client as an ordinary program on your computer, and it reads and maps the repository in memory right there; it doesn't upload your source or depend on any remote service. So you get the full dependency map even on private, proprietary codebases, with nothing sent to the cloud and your code never leaving your laptop.
+
 ## The through-line
 
 An agent reasons; Cartograph remembers the structure. The agent brings judgment, semantic understanding, and the actual edits; Cartograph brings the exhaustive, repeatable, structural bookkeeping that's otherwise tedious to reconstruct from scratch — and the agent is more capable with that map in hand than without it.
