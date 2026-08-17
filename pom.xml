@@ -3,7 +3,8 @@
   pom.xml
   =======
   Purpose (plain English): The build recipe for Cartograph. It says we target Java 21,
-  pulls in the MCP SDK (how we talk to AI agents) and JUnit (tests), then packages
+  pulls in the MCP SDK (how we talk to AI agents), tree-sitter (how we read source code),
+  JGraphT (how we store and search the dependency graph) and JUnit (tests), then packages
   everything into one runnable file: target/cartograph.jar.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -24,6 +25,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <mcp.sdk.version>2.0.0</mcp.sdk.version>
+    <jgrapht.version>1.5.2</jgrapht.version>
+    <treesitter.version>0.25.3</treesitter.version>
+    <treesitter.java.version>0.23.4</treesitter.java.version>
     <junit.version>5.14.4</junit.version>
 
     <compiler.plugin.version>3.15.0</compiler.plugin.version>
@@ -53,6 +57,33 @@
       <groupId>io.modelcontextprotocol.sdk</groupId>
       <artifactId>mcp</artifactId>
       <version>${mcp.sdk.version}</version>
+    </dependency>
+
+    <!--
+      Graph structure and algorithms (search, reachability, cycles, shortest path).
+      We model the codebase as a directed graph and let JGraphT do the graph theory.
+    -->
+    <dependency>
+      <groupId>org.jgrapht</groupId>
+      <artifactId>jgrapht-core</artifactId>
+      <version>${jgrapht.version}</version>
+    </dependency>
+
+    <!--
+      tree-sitter: the parsing engine. It reads source code into a syntax tree without
+      needing to compile it, and has grammars for many languages — which is how Cartograph
+      stays language-agnostic. Each artifact ships prebuilt native libraries for macOS,
+      Linux and Windows, so there is nothing to compile on the user's machine.
+    -->
+    <dependency>
+      <groupId>io.github.bonede</groupId>
+      <artifactId>tree-sitter</artifactId>
+      <version>${treesitter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.bonede</groupId>
+      <artifactId>tree-sitter-java</artifactId>
+      <version>${treesitter.java.version}</version>
     </dependency>
 
     <dependency>
